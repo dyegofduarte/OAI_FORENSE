@@ -25,8 +25,8 @@ Para utilizar esta solução em qualquer núcleo 5G, você precisará da imagem 
 Se você já possuir a imagem hospedada em um *registry* (ex: Docker Hub), não é necessário compilar nada. Basta baixar a imagem diretamente no servidor de destino:
 
 ```bash
-# TODO: Atualize a URL abaixo com o repositório onde a imagem será hospedada
-docker pull seu_usuario/ueransim:gps-nrppa
+# Baixe a imagem hospedada no Docker Hub
+docker pull dyegofduarte/ueramsim_gps:latest
 ```
 
 > **Nota:** Certifique-se de que a tag no seu `docker-compose.yaml` (Passo 3) corresponda ao nome da imagem baixada.
@@ -74,8 +74,8 @@ No arquivo de compose do seu simulador (por exemplo, `docker-compose-ueransim.ya
 
 ```yaml
   ueransim:
-    # 1. Modifique a imagem original para a imagem que acabamos de construir
-    image: ueransim:gps-nrppa
+    # 1. Modifique a imagem original para a imagem hospedada no Docker Hub
+    image: dyegofduarte/ueramsim_gps:latest
     container_name: ueransim
     volumes:
       # 2. Adicione este bind mount para expor as coordenadas em tempo real ao gNB
